@@ -1,0 +1,1484 @@
+openapi: 3.0.0
+info:
+  title: Dieture Frappe API
+  version: 1.0.0
+servers:
+  - url: https://frappe-dev.dieture.com
+  - url: http://192.168.7.3:8000
+  - url: http://127.0.0.1:8000
+
+components:
+  securitySchemes:
+    TokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: |
+        Frappe token-based authentication.
+        Send the header exactly as:
+        `Authorization: token <api_key>:<api_secret>`
+        Example:
+        `Authorization: token 12345abcd:67890efgh`
+
+# Apply auth globally (remove if you want per-route control)
+security:
+  - TokenAuth: []
+  
+tags:
+  - name: Auth
+  - name: Drop Off
+  - name: Customer Onboarding
+  - name: Address
+  - name: Calories
+  - name: Schedule
+  - name: Dishes
+  - name: Subscription
+  - name: 'Email Verification '
+  - name: Website Enquiry
+  - name: Driver
+  - name: Loyalty
+  - name: Customer Progress
+  - name: Notification
+  - name: Customer Favourite
+    description: API for customer favourite
+  - name: Customer wallet & Invitation
+paths:
+  /api/method/ury_dieture.api.auth.get_dropoff_screen:
+    get:
+      tags:
+        - Drop Off
+      summary: Get Drop off Screen
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.auth.set_dropoff_screen:
+    put:
+      tags:
+        - Drop Off
+      summary: SET Drop off Screen
+      requestBody:
+        content: {}
+      parameters:
+        - name: dropoff_screen
+          in: query
+          schema:
+            type: string
+          example: HOME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.auth.register_or_login:
+    post:
+      tags:
+        - Auth
+      summary: Register/Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: +974-697884359
+                send_otp_through_whatsapp: false
+                device_os: mobile
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.auth.verify_otp:
+    post:
+      tags:
+        - Auth
+      summary: VerifyOTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: +974-697884359
+                device_os: mobile
+                otp: '963214'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.auth.logout:
+    post:
+      tags:
+        - Auth
+      summary: Logout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: '+97465674514'
+                otp: '405533'
+                client_id: tchd08jpqa
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.lead.update_user_name:
+    post:
+      tags:
+        - Auth
+      summary: Update user name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Jane ds
+                last_name: Doe KP
+                gender: Female
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.auth.resend_otp:
+    post:
+      tags:
+        - Auth
+      summary: Resend OTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: +974-63300012
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.customer.get_profile:
+    get:
+      tags:
+        - Auth
+      summary: Get Profile
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.websiteauth.get_refresh_token:
+    get:
+      tags:
+        - Auth
+      summary: Get Refresh Token (Website)
+      parameters:
+        - name: refresh_token
+          in: query
+          schema:
+            type: string
+          example: >-
+            -74CPAVQuyiKCbK4Tl0HRN1bEetR5SN10AdrZXYBo4AhXtywSjk4CBo8547L_gffrXZqTtxy469pcBzgqJzUdQ
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/frappe.auth.get_logged_user:
+    get:
+      tags:
+        - Auth
+      summary: Get Logged User
+      security:
+        - TokenAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.onboard_customer:
+    post:
+      tags:
+        - Customer Onboarding
+      summary: Onboard Customer1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: David
+                last_name: John
+                weight_kg: 75
+                height_cm: 180
+                user_id: 974-63300012@gmail.com
+                mobile_no: +974-63300012
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.update_customer_profile:
+    put:
+      tags:
+        - Customer Onboarding
+      summary: Update Customer Profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                profile_name: D-CUST-00125
+                payload:
+                  birth_date: '2000-01-01'
+                  nationality: Qatar
+                  gender: Male
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.get_profile_by_user:
+    get:
+      tags:
+        - Customer Onboarding
+      summary: Get Profile by User
+      security:
+        - TokenAuth: []
+      parameters:
+        - name: user_id
+          in: query
+          schema:
+            type: string
+          example: 974-63300012@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.get_profile_by_mobile:
+    get:
+      tags:
+        - Customer Onboarding
+      summary: Get Profile by Mobile
+      parameters:
+        - name: mobile_no
+          in: query
+          schema:
+            type: string
+          example: 974-69788435
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.programs_bundle:
+    get:
+      tags:
+        - Customer Onboarding
+      summary: Get the Programs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.list_allergen_categories:
+    get:
+      tags:
+        - Customer Onboarding
+      summary: List Allergen Categories
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.create_allergen_category:
+    post:
+      tags:
+        - Customer Onboarding
+      summary: Create Allergen Category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                category_name: Tuna Fish
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan:
+    get:
+      tags:
+        - Schedule
+      summary: get schedule meal plan (object key response)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: filters
+          in: query
+          schema:
+            type: string
+          example: >
+            [["year","=","2025"],["diet_program","=","Classic"],["month","=","September"]]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan_as_array_json:
+    get:
+      tags:
+        - Customer Onboarding
+      summary: Get Scheduled Dishes As Json Array
+      parameters:
+        - name: filters
+          in: query
+          schema:
+            type: string
+          example: '[["diet_program","=","Keto"]]'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.disable_user:
+    put:
+      tags:
+        - Customer Onboarding
+      summary: Disable Customer
+      requestBody:
+        content: {}
+      parameters:
+        - name: user_id
+          in: query
+          schema:
+            type: string
+          example: 974-69767635@gmail.com
+        - name: reason
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.onboarding.enable_user:
+    put:
+      tags:
+        - Customer Onboarding
+      summary: Enable User
+      requestBody:
+        content: {}
+      parameters:
+        - name: user_id
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00097
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.address.create_or_update_customer_address:
+    post:
+      tags:
+        - Address
+      summary: Create/Update Customer Address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customer_profile: D-CUST-00125
+                address_title: David Home
+                custom_lat: 2342
+                custom_long: 72.8333
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.address.update_customer_address:
+    put:
+      tags:
+        - Address
+      summary: Update Customer Address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address_name: David Home-
+                payload:
+                  address_line1: ABC BUilding
+                  city: AL Hilal
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.address.get_address:
+    get:
+      tags:
+        - Address
+      summary: Get Address
+      parameters:
+        - name: address_name
+          in: query
+          schema:
+            type: string
+          example: David Home-
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.address.list_addresses_for_customer:
+    get:
+      tags:
+        - Address
+      summary: List Addresses for Customer
+      parameters:
+        - name: customer_name
+          in: query
+          schema:
+            type: string
+          example: David John
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: David John
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.address.set_primary_or_shipping_address:
+    post:
+      tags:
+        - Address
+      summary: Set Primary/Shipping Address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address_name: David Home-
+                is_primary: 1
+                is_shipping: 0
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/resource/Territory:
+    get:
+      tags:
+        - Address
+      summary: GET Terriroty API
+      parameters:
+        - name: fields
+          in: query
+          schema:
+            type: string
+          example: '["name", "custom_morning_delivery","custom_evening_delivery"]'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.territory_polygons.get_territories:
+    get:
+      tags:
+        - Address
+      summary: Get Territory API with arabic name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.address.get_addresses_with_customer_profile:
+    get:
+      tags:
+        - Address
+      summary: Get Address filtering with customer profile
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.check_if_area_is_covered:
+    post:
+      tags:
+        - Address
+      summary: check_if_area_is_covered
+      requestBody:
+        content: {}
+      parameters:
+        - name: lat
+          in: query
+          schema:
+            type: number
+          example: '25.28861849801826'
+        - name: lng
+          in: query
+          schema:
+            type: number
+          example: '51.365902205078136'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Subscription
+      summary: check delivery location
+      parameters:
+        - name: lat
+          in: query
+          schema:
+            type: number
+          example: '25.2481'
+        - name: lng
+          in: query
+          schema:
+            type: number
+          example: '51.5544'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/resource/Address/{name}:
+    delete:
+      tags:
+        - Address
+      summary: Delete Address
+      parameters:
+        - name: name
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.calorie.compute_target_calories:
+    post:
+      tags:
+        - Calories
+      summary: Compute Target Calories
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                profile_name: D-CUST-00119
+                program_name: Keto
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan_web:
+    get:
+      tags:
+        - Schedule
+      summary: get schedule meal plan (Array  response)
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: filters
+          in: query
+          schema:
+            type: string
+          example: '[["diet_program","=","Classic"]]'
+        - name: date
+          in: query
+          schema:
+            type: string
+          example: '2025-08-25'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.shedule_meal_plan.get_all_dishes:
+    get:
+      tags:
+        - Dishes
+      summary: get dish info
+      parameters:
+        - name: filters
+          in: query
+          schema:
+            type: string
+          example: '[["diet_program","=","Keto"]]'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/resource/Dishes:
+    get:
+      tags:
+        - Dishes
+      summary: Get Dish
+      parameters:
+        - name: filters
+          in: query
+          schema:
+            type: string
+          example: >-
+            [["diet_program", "=", "Keto"], ["meal_type", "=",
+            "Dinner"]]
+        - name: fields
+          in: query
+          schema:
+            type: string
+          example: '["*"]'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.get_custom_pack_price_for_subscription:
+    get:
+      tags:
+        - Subscription
+      summary: GET Custom Pack Price by Program2
+      parameters:
+        - name: diet_program
+          in: query
+          schema:
+            type: string
+          example: keto
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.upsert_meal_subscription:
+    post:
+      tags:
+        - Subscription
+      summary: Create & Update Subscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customer_profile: D-CUST-00119
+                diet_program: Keto
+                meal_plan: Keto-DPLN-021
+
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.payment.dibsy.get_dibsy_payment_link:
+    get:
+      tags:
+        - Subscription
+      summary: Payment Link
+      parameters:
+        - name: meal_subscription
+          in: query
+          schema:
+            type: string
+          example: DML-SUB-2025-00001
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Subscription
+      summary: Pay With Card
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                meal_subscription: DML-SUB-2025-00074
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.coupon_code.apply_coupon_to_subscription:
+    post:
+      tags:
+        - Subscription
+      summary: apply coupon code
+      requestBody:
+        content: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: subscription_name
+          in: query
+          schema:
+            type: string
+          example: DML-SUB-2025-00074
+        - name: coupon_code
+          in: query
+          schema:
+            type: string
+          example: DJU52415
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.payment.dibsy.payment_naps:
+    post:
+      tags:
+        - Subscription
+      summary: Pay With Naps
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                meal_subscription: DML-SUB-2025-00007
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.payment.dibsy.google_pay_payment:
+    post:
+      tags:
+        - Subscription
+      summary: google pay
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                meal_subscription: DML-SUB-2025-00074
+                google_pay_token: kfmslh
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.payment.dibsy.apple_pay_payment:
+    post:
+      tags:
+        - Subscription
+      summary: apple pay
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                meal_subscription: DML-SUB-2025-00007
+                apple_pay_token: kfmsl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.payment.cash.init_cod_payment:
+    post:
+      tags:
+        - Subscription
+      summary: pay with Cash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                subscription_name: DML-SUB-2025-00074
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.get_meal_subscriptions:
+    get:
+      tags:
+        - Subscription
+      summary: 'GET meal subscription with AR And EN Meal Plan '
+      parameters:
+        - name: filters
+          in: query
+          schema:
+            type: string
+          example: '{"name":"DML-SUB-2025-00074"}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.email_verification.send_email_verification:
+    post:
+      tags:
+        - 'Email Verification '
+      summary: send email verification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: 974-66674329@gmail.com
+                email: jishnusunip@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.email_verification.verify_email_otp:
+    post:
+      tags:
+        - 'Email Verification '
+      summary: Verify Email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: 974-66674329@gmail.com
+                email: jishnusunip@gmail.com
+                otp: '411372'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.email_verification.resend_email_otp:
+    post:
+      tags:
+        - 'Email Verification '
+      summary: Resend OTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: 974-66000229@gmail.com
+                email: jishnusunip@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/resource/Lead:
+    get:
+      tags:
+        - Website Enquiry
+      summary: GET Website Enquiry
+      parameters:
+        - name: filters
+          in: query
+          schema:
+            type: string
+          example: '[["custom_is_website","=","1"]]'
+        - name: fields
+          in: query
+          schema:
+            type: string
+          example: '["*"]'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.website_enquiry.create_lead_with_crm_deal:
+    post:
+      tags:
+        - Website Enquiry
+      summary: Create Lead With All Fields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: Kanjana
+                last_name: Malha
+                custom_message: 'How much price cost test '
+                phone: +91 8971109888
+                email_id: ranlllsd12312423110@example.com
+                company_name: ABC PVT LTD
+                date: 22-09-2025
+                source: Website
+                request_type: Contact
+                custom_is_website: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.login:
+    get:
+      tags:
+        - Driver
+      summary: driver login
+      parameters:
+        - name: usr
+          in: query
+          schema:
+            type: string
+          example: driver@gmail.com
+        - name: pwd
+          in: query
+          schema:
+            type: string
+          example: admin@123
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.get_drivers:
+    get:
+      tags:
+        - Driver
+      summary: get_driver_list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.get_driver_trip:
+    get:
+      tags:
+        - Driver
+      summary: Get Trip Details
+      parameters:
+        - name: driver_id
+          in: query
+          schema:
+            type: string
+          example: HR-DRI-2025-00001
+        - name: date
+          in: query
+          schema:
+            type: string
+          example: '2025-08-26'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.set_start_km:
+    put:
+      tags:
+        - Driver
+      summary: Update Start KM
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.set_end_km:
+    put:
+      tags:
+        - Driver
+      summary: Update END KM
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.mark_scanned:
+    put:
+      tags:
+        - Driver
+      summary: Mark Scanned
+      requestBody:
+        content: {}
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.not_delivered:
+    put:
+      tags:
+        - Driver
+      summary: Not Delivered
+      requestBody:
+        content: {}
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: qfca6fmnic
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.mark_visited:
+    put:
+      tags:
+        - Driver
+      summary: Mark Visited
+      requestBody:
+        content: {}
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.update_proof:
+    put:
+      tags:
+        - Driver
+      summary: Upload URL
+      requestBody:
+        content: {}
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          example: qfca6fmnic
+        - name: url
+          in: query
+          schema:
+            type: string
+          example: >-
+            https://feastwithsafiya.com/wp-content/uploads/2023/08/aloo-gobi-featured.jpg
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.unmark_scanned:
+    put:
+      tags:
+        - Driver
+      summary: Unmark Scanned Trip
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.send_notification_to_customer:
+    post:
+      tags:
+        - Driver
+      summary: Send Customer Notification
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.driver.reorder_trip_customers:
+    post:
+      tags:
+        - Driver
+      summary: Rearrange Trip
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.loyalty.get_loyalty_earn_entries_with_status:
+    get:
+      tags:
+        - Loyalty
+      summary: get_loyalty_earn_entries_with_status
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.loyalty.get_loyalty_totals_summary:
+    get:
+      tags:
+        - Loyalty
+      summary: get_loyalty_totals_summary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.loyalty.get_redemption_packages_with_claimable:
+    get:
+      tags:
+        - Loyalty
+      summary: get_redemption_packages_with_claimable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.loyalty.redeem_loyalty:
+    post:
+      tags:
+        - Loyalty
+      summary: redeem_loyalty
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customer_profile: D-CUST-00069
+                Loyalty_redemption_package: Silver
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.progress.get_progress_list_of_dates:
+    get:
+      tags:
+        - Customer Progress
+      summary: get_progress_list_of_dates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.progress.update_customer_progress:
+    post:
+      tags:
+        - Customer Progress
+      summary: Update Customer Progress Settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customer_profile: D-CUST-00125
+                starting_weight: 88.5
+                current_weight: 84.7
+                target_weight: 80
+                daily_water_goal: 10
+                daily_steps_goal: 12000
+                target_calories: 2100
+                target_protein: 150
+                target_fat: 70
+                target_carbs: 220
+                target_sleep_duration: 7.5
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.progress.create_daily_customer_progress:
+    post:
+      tags:
+        - Customer Progress
+      summary: create_daily_customer_progress
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customer_profile: D-CUST-00125
+                date: '2025-08-31'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.progress.update_daily_customer_progress:
+    post:
+      tags:
+        - Customer Progress
+      summary: update_daily_customer_progress
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Daily-D-CUST-00125-2025-08-31
+                water_total_intake: 2100
+                steps_running_cal: 220
+                steps_walking_cal: 160
+                steps_sitting_cal: 40
+                steps_total: 11250
+                consumed_calories: 1980
+                burned_calories: 450
+                consumed_prot: 150
+                consumed_fat: 70
+                consumed_carb: 220
+                weight_value: 84.2
+                skeletal_mass_value: 35.3
+                body_fat_mass_value: 18
+                visceral_fat_level: 9
+                slept: 23:30–07:00
+                average_wake_up: '07:00'
+                average_sleep_time: '23:30'
+                average_sleep_duration: 7h 30m
+                sleep_quality: Good
+                notes: Evening walk added
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.notification.get_unread_notification_count:
+    get:
+      tags:
+        - Notification
+      summary: Get Unread Notification Count
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.notification.get_user_notifications:
+    get:
+      tags:
+        - Notification
+      summary: GET  USER Notifications
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.notification.mark_notification_as_read:
+    put:
+      tags:
+        - Notification
+      summary: Update Notification as Read
+      requestBody:
+        content: {}
+      parameters:
+        - name: notification_id
+          in: query
+          schema:
+            type: string
+          example: ah0tvnmbq0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.customer.get_all_dishes_with_favorites:
+    get:
+      tags:
+        - Customer Favourite
+      summary: Get Customer Favourites Dishes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.customer.add_favorite_item:
+    post:
+      tags:
+        - Customer Favourite
+      summary: Add Favourite item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                favorite_item: Biryani
+                meal_type: Dinner
+                rating: 3.5
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.customer.remove_favorite_item:
+    post:
+      tags:
+        - Customer Favourite
+      summary: Remove Favourite item
+      requestBody:
+        content: {}
+      parameters:
+        - name: favorite_id
+          in: query
+          schema:
+            type: string
+          example: rneua7ju2m
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.wallet.get_wallet_summary:
+    get:
+      tags:
+        - Customer wallet & Invitation
+      summary: get_wallet_summary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.wallet.get_wallet_history:
+    get:
+      tags:
+        - Customer wallet & Invitation
+      summary: get_wallet_history
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/dieture.api.schedule.api_compute_end_date:
+    post:
+      tags:
+        - default
+      summary: Compute Plan End Date
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.customer.get_payment_history:
+    get:
+      tags:
+        - default
+      summary: Get payment History
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '50'
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: '0'
+        - name: user
+          in: query
+          schema:
+            type: string
+          example: 974-69767635@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

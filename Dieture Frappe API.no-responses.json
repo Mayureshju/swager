@@ -1,0 +1,2406 @@
+{
+  "info": {
+    "_postman_id": "e4dd0c3c-ece8-4844-a712-abb761a1072a",
+    "name": "Dieture Frappe API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47539137",
+    "_collection_link": "https://redtra.postman.co/workspace/Samarth's-Workspace~894d8293-d6c7-4f72-885a-385bf6c41c9d/collection/19950180-e4dd0c3c-ece8-4844-a712-abb761a1072a?action=share&source=collection_link&creator=47539137"
+  },
+  "item": [
+    {
+      "name": "Drop Off",
+      "item": [
+        {
+          "name": "Get Drop off Screen",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.auth.get_dropoff_screen",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.auth.get_dropoff_screen"
+              ]
+            }
+          }
+        },
+        {
+          "name": "SET Drop off Screen",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.auth.set_dropoff_screen?dropoff_screen=HOME",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.auth.set_dropoff_screen"
+              ],
+              "query": [
+                {
+                  "key": "dropoff_screen",
+                  "value": "HOME"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register/Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"phone\": \"+974-697884359\",\n    \"send_otp_through_whatsapp\": false,\n    \"device_os\": \"mobile\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.auth.register_or_login",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.auth.register_or_login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "VerifyOTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"phone\": \"+974-697884359\",\n    \"device_os\": \"mobile\",\n    \"otp\": \"963214\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.auth.verify_otp",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.auth.verify_otp"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"phone\": \"+97465674514\",\n    \"otp\": \"405533\",\n    \"client_id\": \"tchd08jpqa\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.auth.logout",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.auth.logout"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update user name",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"first_name\": \"Jane ds\",\n    \"last_name\": \"Doe KP\",\n    \"gender\": \"Female\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.lead.update_user_name",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.lead.update_user_name"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Resend OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"phone\": \"+974-63300012\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.auth.resend_otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.auth.resend_otp"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Profile",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"phone\": \"+974-63300012\",\n    \"send_otp_through_whatsapp\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.customer.get_profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.customer.get_profile"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Refresh Token (Website)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://frappe-dev.dieture.com/api/method/ury_dieture.api.websiteauth.get_refresh_token?refresh_token=-74CPAVQuyiKCbK4Tl0HRN1bEetR5SN10AdrZXYBo4AhXtywSjk4CBo8547L_gffrXZqTtxy469pcBzgqJzUdQ",
+              "protocol": "https",
+              "host": [
+                "frappe-dev",
+                "dieture",
+                "com"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.websiteauth.get_refresh_token"
+              ],
+              "query": [
+                {
+                  "key": "refresh_token",
+                  "value": "-74CPAVQuyiKCbK4Tl0HRN1bEetR5SN10AdrZXYBo4AhXtywSjk4CBo8547L_gffrXZqTtxy469pcBzgqJzUdQ"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Logged User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/frappe.auth.get_logged_user",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "frappe.auth.get_logged_user"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer Onboarding",
+      "item": [
+        {
+          "name": "Onboard Customer1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"John\",\n    \"weight_kg\": 75,\n    \"height_cm\": 180,\n    \"user_id\": \"974-63300012@gmail.com\",\n    \"mobile_no\":\"+974-63300012\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.onboard_customer",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.onboard_customer"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Customer Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"profile_name\": \"D-CUST-00125\",\n    \"payload\": {\n        \"birth_date\":\"2000-01-01\",\n        \"nationality\":\"Qatar\",\n        \"gender\":\"Male\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.update_customer_profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.update_customer_profile"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Profile by User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "token aaae24143c13734:38e70a7aeaabf44",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.get_profile_by_user?user_id=974-63300012@gmail.com",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.get_profile_by_user"
+              ],
+              "query": [
+                {
+                  "key": "user_id",
+                  "value": "974-63300012@gmail.com"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Profile by Mobile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.get_profile_by_mobile?mobile_no=974-69788435",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.get_profile_by_mobile"
+              ],
+              "query": [
+                {
+                  "key": "mobile_no",
+                  "value": "974-69788435"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get the Programs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.programs_bundle",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.programs_bundle"
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Allergen Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.list_allergen_categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.list_allergen_categories"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Allergen Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"category_name\": \"Tuna Fish\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.create_allergen_category",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.create_allergen_category"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Scheduled Dishes",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\":\"2025-06-28\",\n    \"meal_type\":\"Breakfast\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan?filters=[[\"diet_program\",\"=\",\"Keto\"]]",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"diet_program\",\"=\",\"Keto\"]]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Scheduled Dishes As Json Array",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\":\"2025-06-28\",\n    \"meal_type\":\"Breakfast\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan_as_array_json?filters=[[\"diet_program\",\"=\",\"Keto\"]]",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan_as_array_json"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"diet_program\",\"=\",\"Keto\"]]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Disable Customer",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/method/ury_dieture.api.onboarding.disable_user?user_id=974-69767635@gmail.com&reason",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.disable_user"
+              ],
+              "query": [
+                {
+                  "key": "user_id",
+                  "value": "974-69767635@gmail.com"
+                },
+                {
+                  "key": "reason",
+                  "value": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Enable User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.onboarding.enable_user?user_id=D-CUST-00097",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.onboarding.enable_user"
+              ],
+              "query": [
+                {
+                  "key": "user_id",
+                  "value": "D-CUST-00097"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Address",
+      "item": [
+        {
+          "name": "Create/Update Customer Address",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n    \"customer_profile\": \"D-CUST-00125\",\n    \"address_title\": \"David Home\",\n    \"custom_lat\": 2342,\n    \"custom_long\": 72.8333\n     \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.address.create_or_update_customer_address",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.address.create_or_update_customer_address"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Customer Address",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"address_name\": \"David Home-\",\n    \"payload\": {\n        \"address_line1\": \"ABC BUilding\",\n        \"city\":\"AL Hilal\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.address.update_customer_address",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.address.update_customer_address"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Address",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.address.get_address?address_name=David Home-",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.address.get_address"
+              ],
+              "query": [
+                {
+                  "key": "address_name",
+                  "value": "David Home-"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Addresses for Customer",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.address.list_addresses_for_customer?customer_name=David John&customer_profile=David John",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.address.list_addresses_for_customer"
+              ],
+              "query": [
+                {
+                  "key": "customer_name",
+                  "value": "David John"
+                },
+                {
+                  "key": "customer_profile",
+                  "value": "David John"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Set Primary/Shipping Address",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"address_name\": \"David Home-\",\n    \"is_primary\": 1,\n    \"is_shipping\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.address.set_primary_or_shipping_address",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.address.set_primary_or_shipping_address"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Terriroty API",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Territory?fields=[\"name\", \"custom_morning_delivery\",\"custom_evening_delivery\"]",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "resource",
+                "Territory"
+              ],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\", \"custom_morning_delivery\",\"custom_evening_delivery\"]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Territory API with arabic name",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.territory_polygons.get_territories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.territory_polygons.get_territories"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Address filtering with customer profile",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\":\"D-CUST-00125\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.address.get_addresses_with_customer_profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.address.get_addresses_with_customer_profile"
+              ]
+            }
+          }
+        },
+        {
+          "name": "check_if_area_is_covered",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.subscription.check_if_area_is_covered?lat=25.28861849801826&lng=51.365902205078136",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.subscription.check_if_area_is_covered"
+              ],
+              "query": [
+                {
+                  "key": "lat",
+                  "value": "25.28861849801826"
+                },
+                {
+                  "key": "lng",
+                  "value": "51.365902205078136"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Address",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Address/{{name}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "resource",
+                "Address",
+                "{{name}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Calories",
+      "item": [
+        {
+          "name": "Compute Target Calories",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"profile_name\": \"D-CUST-00119\",\n    \"program_name\": \"Keto\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.calorie.compute_target_calories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.calorie.compute_target_calories"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Schedule",
+      "item": [
+        {
+          "name": "get schedule meal plan (object key response)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    /* e.g. input fields for schedule calculation */\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan?filters=[[\"year\",\"=\",\"2025\"],[\"diet_program\",\"=\",\"Classic\"],[\"month\",\"=\",\"September\"]]\n",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"year\",\"=\",\"2025\"],[\"diet_program\",\"=\",\"Classic\"],[\"month\",\"=\",\"September\"]]\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "get schedule meal plan (Array  response)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    /* e.g. input fields for schedule calculation */\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan_web?filters=[[\"diet_program\",\"=\",\"Classic\"]]&date=2025-08-25",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.shedule_meal_plan.get_shedule_meal_plan_web"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"diet_program\",\"=\",\"Classic\"]]"
+                },
+                {
+                  "key": "date",
+                  "value": "2025-08-25"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dishes",
+      "item": [
+        {
+          "name": "List Dishes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.shedule_meal_plan.get_all_dishes?filters=[[\"diet_program\",\"=\",\"Keto\"]]",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.shedule_meal_plan.get_all_dishes"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"diet_program\",\"=\",\"Keto\"]]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "get dish info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.shedule_meal_plan.get_all_dishes?filters=[[\"diet_program\",\"=\",\"Keto\"]]",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.shedule_meal_plan.get_all_dishes"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"diet_program\",\"=\",\"Keto\"]]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Dish",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Dishes?filters=[[\"diet_program\", \"=\", \"{{dish_program}}\"], [\"meal_type\", \"=\", \"{{meal_type}}\"]]&fields=[\"*\"]",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "resource",
+                "Dishes"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"diet_program\", \"=\", \"{{dish_program}}\"], [\"meal_type\", \"=\", \"{{meal_type}}\"]]"
+                },
+                {
+                  "key": "fields",
+                  "value": "[\"*\"]"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subscription",
+      "item": [
+        {
+          "name": "GET Custom Pack Price by Program",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.subscription.get_custom_pack_price_for_subscription?diet_program=keto",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.subscription.get_custom_pack_price_for_subscription"
+              ],
+              "query": [
+                {
+                  "key": "diet_program",
+                  "value": "keto"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "check delivery location",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.subscription.check_if_area_is_covered?lat=25.2481&lng=51.5544",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.subscription.check_if_area_is_covered"
+              ],
+              "query": [
+                {
+                  "key": "lat",
+                  "value": "25.2481"
+                },
+                {
+                  "key": "lng",
+                  "value": "51.5544"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create & Update Subscription",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\": \"D-CUST-00119\",\n    \"diet_program\": \"Keto\",\n    \"meal_plan\": \"Keto-DPLN-021\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.subscription.upsert_meal_subscription",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.subscription.upsert_meal_subscription"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Payment Link",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.payment.dibsy.get_dibsy_payment_link?meal_subscription=DML-SUB-2025-00001",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.payment.dibsy.get_dibsy_payment_link"
+              ],
+              "query": [
+                {
+                  "key": "meal_subscription",
+                  "value": "DML-SUB-2025-00001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Custom Pack Price by Program2",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.subscription.get_custom_pack_price_for_subscription?diet_program=keto",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.subscription.get_custom_pack_price_for_subscription"
+              ],
+              "query": [
+                {
+                  "key": "diet_program",
+                  "value": "keto"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "apply coupon code",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "aaae24143c13734:38e70a7aeaabf44",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.coupon_code.apply_coupon_to_subscription?subscription_name=DML-SUB-2025-00074&coupon_code=DJU52415",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.coupon_code.apply_coupon_to_subscription"
+              ],
+              "query": [
+                {
+                  "key": "subscription_name",
+                  "value": "DML-SUB-2025-00074"
+                },
+                {
+                  "key": "coupon_code",
+                  "value": "DJU52415"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pay With Card",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meal_subscription\":\"DML-SUB-2025-00074\"\n//   \"is_website\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.payment.dibsy.get_dibsy_payment_link",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.payment.dibsy.get_dibsy_payment_link"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pay With Naps",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meal_subscription\":\"DML-SUB-2025-00007\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.payment.dibsy.payment_naps",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.payment.dibsy.payment_naps"
+              ]
+            }
+          }
+        },
+        {
+          "name": "google pay",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meal_subscription\":\"DML-SUB-2025-00074\",\n  \"google_pay_token\":\"kfmslh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.payment.dibsy.google_pay_payment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.payment.dibsy.google_pay_payment"
+              ]
+            }
+          }
+        },
+        {
+          "name": "apple pay",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meal_subscription\":\"DML-SUB-2025-00007\",\n  \"apple_pay_token\":\"kfmsl\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.payment.dibsy.apple_pay_payment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.payment.dibsy.apple_pay_payment"
+              ]
+            }
+          }
+        },
+        {
+          "name": "pay with Cash",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"subscription_name\":\"DML-SUB-2025-00074\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.payment.cash.init_cod_payment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.payment.cash.init_cod_payment"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET meal subscription with AR And EN Meal Plan ",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.subscription.get_meal_subscriptions?filters={\"name\":\"DML-SUB-2025-00074\"}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.subscription.get_meal_subscriptions"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "{\"name\":\"DML-SUB-2025-00074\"}"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Email Verification ",
+      "item": [
+        {
+          "name": "send email verification",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\":\"974-66674329@gmail.com\",\n    \"email\":\"jishnusunip@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.email_verification.send_email_verification",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.email_verification.send_email_verification"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Verify Email",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\":\"974-66674329@gmail.com\",\n    \"email\":\"jishnusunip@gmail.com\",\n    \"otp\":\"411372\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.email_verification.verify_email_otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.email_verification.verify_email_otp"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Resend OTP",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": \"974-66000229@gmail.com\",\n    \"email\":\"jishnusunip@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.email_verification.resend_email_otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.email_verification.resend_email_otp"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Website Enquiry",
+      "item": [
+        {
+          "name": "GET Website Enquiry",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Lead?filters=[[\"custom_is_website\",\"=\",\"1\"]]&fields=[\"*\"]",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "resource",
+                "Lead"
+              ],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"custom_is_website\",\"=\",\"1\"]]"
+                },
+                {
+                  "key": "fields",
+                  "value": "[\"*\"]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Lead With All Fields",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n        \"first_name\": \"Kanjana\",\n        \"last_name\": \"Malha\",\n        \"custom_message\": \"How much price cost test \",\n        \"phone\": \"+91 8971109888\",\n        \"email_id\": \"ranlllsd12312423110@example.com\",\n        \"company_name\": \"ABC PVT LTD\",\n        \"date\": \"22-09-2025\",\n        \"source\":\"Website\",\n        \"request_type\":\"Contact\",\n        \"custom_is_website\":1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.website_enquiry.create_lead_with_crm_deal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.website_enquiry.create_lead_with_crm_deal"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Driver",
+      "item": [
+        {
+          "name": "driver login",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.login?usr=driver@gmail.com&pwd=admin@123",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.login"
+              ],
+              "query": [
+                {
+                  "key": "usr",
+                  "value": "driver@gmail.com"
+                },
+                {
+                  "key": "pwd",
+                  "value": "admin@123"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "get_driver_list",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.get_drivers",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.get_drivers"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Trip Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.get_driver_trip?driver_id=HR-DRI-2025-00001&date=2025-08-26",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.get_driver_trip"
+              ],
+              "query": [
+                {
+                  "key": "driver_id",
+                  "value": "HR-DRI-2025-00001"
+                },
+                {
+                  "key": "date",
+                  "value": "2025-08-26"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Start KM",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.set_start_km",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.set_start_km"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update END KM",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.set_end_km",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.set_end_km"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark Scanned",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.mark_scanned?id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.mark_scanned"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Not Delivered",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.not_delivered?id=qfca6fmnic",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.not_delivered"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "qfca6fmnic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark Visited",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.mark_visited?id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.mark_visited"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Upload URL",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.update_proof?id=qfca6fmnic&url=https://feastwithsafiya.com/wp-content/uploads/2023/08/aloo-gobi-featured.jpg",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.update_proof"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "qfca6fmnic"
+                },
+                {
+                  "key": "url",
+                  "value": "https://feastwithsafiya.com/wp-content/uploads/2023/08/aloo-gobi-featured.jpg"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Unmark Scanned Trip",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.unmark_scanned",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.unmark_scanned"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Send Customer Notification",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.send_notification_to_customer",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.send_notification_to_customer"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Rearrange Trip",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.driver.reorder_trip_customers",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.driver.reorder_trip_customers"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Loyalty",
+      "item": [
+        {
+          "name": "get_loyalty_earn_entries_with_status",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\":\"D-CUST-00125\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.loyalty.get_loyalty_earn_entries_with_status",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.loyalty.get_loyalty_earn_entries_with_status"
+              ]
+            }
+          }
+        },
+        {
+          "name": "get_loyalty_totals_summary",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\":\"D-CUST-00125\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.loyalty.get_loyalty_totals_summary",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.loyalty.get_loyalty_totals_summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "get_redemption_packages_with_claimable",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\":\"D-CUST-00125\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.loyalty.get_redemption_packages_with_claimable",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.loyalty.get_redemption_packages_with_claimable"
+              ]
+            }
+          }
+        },
+        {
+          "name": "redeem_loyalty",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\":\"D-CUST-00069\",\n    \"Loyalty_redemption_package\":\"Silver\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.loyalty.redeem_loyalty",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.loyalty.redeem_loyalty"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer Progress",
+      "item": [
+        {
+          "name": "get_progress_list_of_dates",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\":\"D-CUST-00069\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.progress.get_progress_list_of_dates",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.progress.get_progress_list_of_dates"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Customer Progress Settings",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\": \"D-CUST-00125\", // don't pass from mobile\n    \"starting_weight\": 88.5,\n    \"current_weight\": 84.7,\n    \"target_weight\": 80.0,\n    \"daily_water_goal\": 10,\n    \"daily_steps_goal\": 12000,\n    \"target_calories\": 2100,\n    \"target_protein\": 150.0,\n    \"target_fat\": 70.0,\n    \"target_carbs\": 220.0,\n    \"target_sleep_duration\": 7.5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.progress.update_customer_progress",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.progress.update_customer_progress"
+              ]
+            }
+          }
+        },
+        {
+          "name": "create_daily_customer_progress",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\": \"D-CUST-00125\", // don't pass from mobile\n    \"date\":\"2025-08-31\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.progress.create_daily_customer_progress",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.progress.create_daily_customer_progress"
+              ]
+            }
+          }
+        },
+        {
+          "name": "update_daily_customer_progress",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Daily-D-CUST-00125-2025-08-31\",\n  \"water_total_intake\": 2100,\n  \"steps_running_cal\": 220,\n  \"steps_walking_cal\": 160,\n  \"steps_sitting_cal\": 40,\n  \"steps_total\": 11250,\n  \"consumed_calories\": 1980,\n  \"burned_calories\": 450,\n  \"consumed_prot\": 150,\n  \"consumed_fat\": 70,\n  \"consumed_carb\": 220,\n  \"weight_value\": 84.2,\n  \"skeletal_mass_value\": 35.3,\n  \"body_fat_mass_value\": 18.0,\n  \"visceral_fat_level\": 9.0,\n  \"slept\": \"23:30–07:00\",\n  \"average_wake_up\": \"07:00\",\n  \"average_sleep_time\": \"23:30\",\n  \"average_sleep_duration\": \"7h 30m\",\n  \"sleep_quality\": \"Good\",\n  \"notes\": \"Evening walk added\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.progress.update_daily_customer_progress",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.progress.update_daily_customer_progress"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notification",
+      "item": [
+        {
+          "name": "Get Unread Notification Count",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.notification.get_unread_notification_count",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.notification.get_unread_notification_count"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET  USER Notifications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.notification.get_user_notifications",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.notification.get_user_notifications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Notification as Read",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.notification.mark_notification_as_read?notification_id=ah0tvnmbq0",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.notification.mark_notification_as_read"
+              ],
+              "query": [
+                {
+                  "key": "notification_id",
+                  "value": "ah0tvnmbq0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer Favourite",
+      "item": [
+        {
+          "name": "Get Customer Favourites Dishes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.customer.get_all_dishes_with_favorites",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.customer.get_all_dishes_with_favorites"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Favourite item",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"favorite_item\":\"Biryani\",\n    \"meal_type\":\"Dinner\",\n    \"rating\":3.5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.customer.add_favorite_item",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.customer.add_favorite_item"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Remove Favourite item",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/method/ury_dieture.api.customer.remove_favorite_item?favorite_id=rneua7ju2m",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.customer.remove_favorite_item"
+              ],
+              "query": [
+                {
+                  "key": "favorite_id",
+                  "value": "rneua7ju2m"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "description": "API for customer favourite"
+    },
+    {
+      "name": "Customer wallet & Invitation",
+      "item": [
+        {
+          "name": "get_wallet_summary",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customer_profile\":\"D-CUST-00125\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.wallet.get_wallet_summary",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.wallet.get_wallet_summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "get_wallet_history",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_profile\":\"D-CUST-00069\",\n  \"page\": 1,\n  \"page_size\": 20,\n  \"date_from\": \"2025-08-01\",\n  \"date_to\": \"2025-08-31\",\n  \"transaction_type\": \"Credit\",\n  \"reference_type\": \"Loyalty Redemption\",\n  \"order\": \"date desc, creation desc\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/ury_dieture.api.wallet.get_wallet_history",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "method",
+                "ury_dieture.api.wallet.get_wallet_history"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Compute Plan End Date",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    /* e.g. input fields for schedule calculation */\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/method/dieture.api.schedule.api_compute_end_date",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "method",
+            "dieture.api.schedule.api_compute_end_date"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get payment History",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    /* e.g. input fields for schedule calculation */\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/method/ury_dieture.api.customer.get_payment_history?limit=50&offset=0&user=974-69767635@gmail.com",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "method",
+            "ury_dieture.api.customer.get_payment_history"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "50"
+            },
+            {
+              "key": "offset",
+              "value": "0"
+            },
+            {
+              "key": "user",
+              "value": "974-69767635@gmail.com"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
