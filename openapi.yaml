@@ -42,6 +42,7 @@ tags:
   - name: Customer Favourite
     description: API for customer favourite
   - name: Customer wallet & Invitation
+  - name: Feedback
 paths:
   /api/method/ury_dieture.api.auth.get_dropoff_screen:
     get:
@@ -1477,6 +1478,79 @@ paths:
           schema:
             type: string
           example: 974-69767635@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.rating.create_review_and_rating:
+    post:
+      tags:
+        - Feedback
+      summary: Create review and rating
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reference_type:
+                  type: string
+                  example: Dishes
+                  description: Static value. Always use "Dishes".
+                reference_item:
+                  type: string
+                  example: D-Classic-024
+                  description: Dish ID
+                user_id:
+                  type: string
+                  example: Dpits@gmail.com
+                  description: User email/ID
+                review:
+                  type: string
+                  example: ""
+              required:
+                - reference_type
+                - reference_item
+                - user_id
+                - review
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.rating.update_review_attachments:
+    post:
+      tags:
+        - Feedback
+      summary: Update review attachments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                review_id:
+                  type: string
+                  example: jg152582nc
+                  description: Review ID returned by create review
+                user_id:
+                  type: string
+                  example: Dpits@gmail.com
+                  description: User email/ID
+                image_urls:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - /files/new_dish_photo1.jpg
+                    - /files/new_dish_photo2.jpg
+                voice_note_url:
+                  type: string
+                  example: /files/new_voice_feedback.mp3
+              required:
+                - review_id
+                - user_id
       responses:
         '200':
           description: Successful response
