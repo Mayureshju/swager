@@ -1556,3 +1556,36 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/resource/Daily%20Customer%20Progress/{name}:
+    get:
+      tags:
+        - Customer Progress
+      summary: Get Daily Customer Progress by name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          example: Daily-D-CUST-00069-2025-08-31
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.progress.get_customer_progress_target:
+    get:
+      tags:
+        - Customer Progress
+      summary: Get customer progress target
+      parameters:
+        - name: user_id
+          in: query
+          schema:
+            type: string
+          example: 974-63300012@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
