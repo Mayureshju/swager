@@ -896,6 +896,126 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/method/ury_dieture.api.subscription.get_menu_for_subscription_day:
+    get:
+      tags:
+        - Subscription
+      summary: Get menu for subscription day
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00089
+        - name: subscription_id
+          in: query
+          schema:
+            type: string
+          example: DML-SUB-2025-00010
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+          example: '2025-08-24'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.get_rescheduled_boxes_for_day:
+    get:
+      tags:
+        - Subscription
+      summary: Get rescheduled boxes for day
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00089
+        - name: subscription_id
+          in: query
+          schema:
+            type: string
+          example: DML-SUB-2025-00010
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+          example: '2025-08-24'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.get_customer_dishes_for_date:
+    get:
+      tags:
+        - Subscription
+      summary: Get customer dishes for date
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00089
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+          example: '2025-08-24'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.get_subscription_logs:
+    get:
+      tags:
+        - Subscription
+      summary: Get subscription logs
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00089
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+          example: '2025-08-24'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.subscription.get_subscription_pauses:
+    get:
+      tags:
+        - Subscription
+      summary: Get subscription pauses
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00089
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+          example: '2025-08-24'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/method/ury_dieture.api.email_verification.send_email_verification:
     post:
       tags:
