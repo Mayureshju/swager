@@ -1431,6 +1431,60 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/method/ury_dieture.api.wallet.get_invited_customers:
+    get:
+      tags:
+        - Customer wallet & Invitation
+      summary: Get invited customers
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00088
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: 1
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+          example: 20
+        - name: date_from
+          in: query
+          schema:
+            type: string
+            format: date
+          example: '2025-08-01'
+        - name: date_to
+          in: query
+          schema:
+            type: string
+            format: date
+          example: '2025-08-31'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.wallet.get_invitation_codes:
+    get:
+      tags:
+        - Customer wallet & Invitation
+      summary: Get invitation codes
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00090
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/method/dieture.api.schedule.api_compute_end_date:
     post:
       tags:
@@ -1552,6 +1606,37 @@ paths:
               required:
                 - review_id
                 - user_id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.rating.get_customer_feedbacks:
+    get:
+      tags:
+        - Feedback
+      summary: Get customer feedbacks for a dish
+      parameters:
+        - name: dish_id
+          in: query
+          schema:
+            type: string
+          example: D-Keto-032
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: 10
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          example: 0
+        - name: user_id
+          in: query
+          schema:
+            type: string
+          example: Dpits@gmail.com
       responses:
         '200':
           description: Successful response
