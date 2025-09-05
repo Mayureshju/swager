@@ -43,6 +43,7 @@ tags:
     description: API for customer favourite
   - name: Customer wallet & Invitation
   - name: Feedback
+  - name: Moengage
 paths:
   /api/method/ury_dieture.api.auth.get_dropoff_screen:
     get:
@@ -1551,6 +1552,140 @@ paths:
               required:
                 - review_id
                 - user_id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.moengage.save_and_update_moengage_notifications:
+    post:
+      tags:
+        - Moengage
+      summary: Save or update Moengage notifications
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer_profile:
+                  type: string
+                  example: D-CUST-00090
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1001
+                      campaignId:
+                        type: string
+                        example: cmp_WELCOME_2025
+                      text:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                            example: Welcome 👋
+                          subtitle:
+                            type: string
+                            example: Let’s get started
+                          message:
+                            type: string
+                            example: Hi {first_name}, your plan is ready.
+                          summary:
+                            type: string
+                            example: Onboarding
+                      isClicked:
+                        type: boolean
+                        example: false
+                      media:
+                        type: object
+                        properties:
+                          mediaType:
+                            type: string
+                            example: image
+                          url:
+                            type: string
+                            example: https://cdn.example.com/banner.jpg
+                      action:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            actionType:
+                              type: string
+                              example: deep_link
+                            navigationType:
+                              type: string
+                              example: product
+                            value:
+                              type: string
+                              example: SKU123
+                            kvPair:
+                              oneOf:
+                                - type: string
+                                - type: object
+                      tag:
+                        type: string
+                        example: welcome
+                      receivedTime:
+                        type: string
+                        format: date-time
+                        example: 2025-09-01T12:00:00Z
+                      expiry:
+                        type: string
+                        format: date-time
+                        example: 2025-09-05T12:00:00Z
+                      payload:
+                        oneOf:
+                          - type: string
+                          - type: object
+              required:
+                - customer_profile
+                - messages
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.moengage.mark_moengage_notification_as_read:
+    post:
+      tags:
+        - Moengage
+      summary: Mark Moengage notification as read
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer_profile:
+                  type: string
+                  example: D-CUST-00090
+                moengage_notififaction_name:
+                  type: string
+                  example: MOE-NOTI-00001
+              required:
+                - customer_profile
+                - moengage_notififaction_name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/method/ury_dieture.api.moengage.get_unclicked_moe_notification_count:
+    get:
+      tags:
+        - Moengage
+      summary: Get count of unclicked notifications
+      parameters:
+        - name: customer_profile
+          in: query
+          schema:
+            type: string
+          example: D-CUST-00090
       responses:
         '200':
           description: Successful response
